@@ -18,6 +18,8 @@ public class Main {
         int ele = sc.nextInt();
         System.out.println("First occurrence of element: "+first(arr, 0, ele));
         System.out.println("Last occurrence of element: "+ last(arr, n, ele));
+        System.out.print("All occurrences of the element: ");
+        allIndex(arr, 0, ele);
     }
 
     public static int first(int[] arr, int idx, int n){
@@ -41,5 +43,13 @@ public class Main {
             int ans = last(arr, len-1, n);
             return ans;
         }
+    }
+
+    public static void allIndex(int[] arr, int idx, int n){
+        if(idx==arr.length)return;
+        if(arr[idx]==n){
+            System.out.print(idx+" ");
+        }
+        allIndex(arr, idx+1, n);
     }
 }
