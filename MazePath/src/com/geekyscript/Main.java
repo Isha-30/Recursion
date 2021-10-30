@@ -45,4 +45,22 @@ public class Main {
 
         return paths;
     }
+
+    public static void printMazeWithJump(int sr, int sc, int dr, int dc, String psf){
+        if(sr==dr && sc==dc){
+            System.out.println((psf));
+            return;
+        }
+        for(int ms = 1; ms<= dc-sc; ms++){
+            printMazeWithJump(sr, sc+ms, dr, dc, psf + "h" + ms);
+        }
+
+        for(int ms = 1; ms<= dr-sr; ms++){
+            printMazeWithJump(sr+ms, sc, dr, dc, psf + "v" + ms);
+        }
+
+        for(int ms = 1; ms<= dr-sr && ms<= dc-sc; ms++){
+            printMazeWithJump(sr+ms, sc+ms, dr, dc, psf + "d" + ms);
+        }
+    }
 }
