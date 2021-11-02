@@ -12,7 +12,7 @@ public class Main {
         System.out.println("Original Stack:");
         System.out.println(st);
         reverse();
-        System.out.println("Reversed Stack:");
+        System.out.println("Reverse Stack:");
         System.out.println(st);
     }
     public static void insertAtBottom(int x){
