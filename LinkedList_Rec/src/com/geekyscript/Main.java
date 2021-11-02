@@ -23,6 +23,7 @@ public class Main {
         if(head == null) return newNode(data);
         else
             head.next = insertEnd(head.next, data);
+        //System.out.println(head+" "+ data);
         return head;
     }
 
