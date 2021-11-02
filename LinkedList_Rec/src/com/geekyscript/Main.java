@@ -1,5 +1,5 @@
 package com.geekyscript;
-
+//Insert and traverse using recursion
 public class Main {
 
     public static void main(String[] args) {
