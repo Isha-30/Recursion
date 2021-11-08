@@ -1,0 +1,14 @@
+//A digit string is good if the digits (0-indexed) at even indices are even and the digits at odd indices are prime (2, 3, 5, or 7).
+class Solution {
+    final long mod = 1000000007;
+    public int countGoodNumbers(long n) {
+        if(n%2==0)return (int)(power(4, n/2) * power(5, n/2) % mod);
+        else return (int)(power(4, n/2) * power(5, n/2) * 5 % mod);    
+    }
+    
+    private long power(int val, long pow){
+        if(pow==0)return 1;
+        long p = power(val, pow/2);
+        return p * p % mod * (pow % 2 == 0 ? 1:val) % mod;
+    }
+}
