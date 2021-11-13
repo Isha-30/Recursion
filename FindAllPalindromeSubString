@@ -1,0 +1,30 @@
+class Solution {
+    static ArrayList<ArrayList<String>> allPalindromicPerms(String S) {
+        ArrayList<ArrayList<String>> res = new ArrayList<>();
+        ArrayList<String> list = new ArrayList<>();
+        func(0, S, list, res);
+        return res;
+    }
+    
+    static void func(int idx, String s, ArrayList<String> list, ArrayList<ArrayList<String>> res){
+        if(idx==s.length()){
+            res.add(new ArrayList<>(list));
+            return;
+        }
+        
+        for(int i = idx; i<s.length(); i++){
+            if(isPalindrome(s, idx, i)){
+                list.add(s.substring(idx, i+1));
+                func(i+1, s, list, res);
+                list.remove(list.size()-1);
+            }   
+        }
+    }
+    
+    static boolean isPalindrome(String s, int start, int end){
+        while(start<=end){
+            if(s.charAt(start++) != s.charAt(end--)) return false;
+        }
+        return true;
+    }
+};
